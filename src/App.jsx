@@ -21,8 +21,8 @@ function App() {
   return (
     <div className="App">
       <AppShell>
-        <AppShell.Main style={{ height: "auto" }}>
-          <Navbar style={{ height: "auto", alignContent: "center" }} />
+        <AppShell.Main className="appShellMain">
+          <Navbar className="appNavbar" />
           <hr />
           <Routes>
             <Route
@@ -64,12 +64,7 @@ function App() {
               path="*"
               element={
                 <Center>
-                  <img
-                    className="logo"
-                    style={{ height: "30vw" }}
-                    src={errorPage}
-                    alt="404"
-                  />
+                  <img className="logo" src={errorPage} alt="404" />
                 </Center>
               }
             />

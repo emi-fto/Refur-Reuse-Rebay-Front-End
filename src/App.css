@@ -5,3 +5,13 @@ hr {
 a:link {
   text-decoration: none;
 }
+.appShellMain {
+  height: "auto";
+}
+.appNavbar {
+  height: "auto";
+  align-content: "center";
+}
+.logo {
+  height: "30vw";
+}

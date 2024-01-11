@@ -6,6 +6,7 @@ import { Card, Image, Text, Button, Group } from "@mantine/core";
 import { SimpleGrid, Center } from "@mantine/core";
 import { notifications } from "@mantine/notifications";
 import { useViewportSize } from "@mantine/hooks";
+import "../Styles/HomePage.css";
 
 function HomePage({ cartItems, setCartItems, VITE_API_URL }) {
   const [items, setItems] = useState([]);
@@ -55,12 +56,12 @@ function HomePage({ cartItems, setCartItems, VITE_API_URL }) {
 
   return (
     <>
-      <Center style={{ marginTop: "1rem" }}>
+      <Center className="centerHome">
         <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       </Center>
       <SimpleGrid
+        className="homeGrid"
         cols={width > 1200 ? 3 : width > 800 ? 2 : 1}
-        style={{ margin: "1.5rem" }}
       >
         {items.map((item) => {
           return (

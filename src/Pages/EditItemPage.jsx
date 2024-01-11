@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { TextInput, Button, Group, Box } from "@mantine/core";
 import { notifications } from "@mantine/notifications";
+import "../Styles/EditItemPage.css";
 
 function EditItemPage({ VITE_API_URL }) {
   const navigate = useNavigate();
@@ -58,11 +59,7 @@ function EditItemPage({ VITE_API_URL }) {
 
   return (
     <>
-      <Box
-        maw={340}
-        mx="auto"
-        style={{ marginBottom: "1.5rem", marginTop: "1.5rem" }}
-      >
+      <Box className="editBox" maw={340} mx="auto">
         <h3>Edit Item</h3>
         <form onSubmit={handleSubmit}>
           <TextInput

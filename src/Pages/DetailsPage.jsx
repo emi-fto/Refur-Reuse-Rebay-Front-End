@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { Card, Image, Text, Button, Group, Center } from "@mantine/core";
+import "../Styles/DetailsPage.css";
 
 function DetailsPage({ VITE_API_URL }) {
   const [item, setItem] = useState({});
@@ -21,15 +22,15 @@ function DetailsPage({ VITE_API_URL }) {
   }, [itemId]);
 
   return (
-    <Center style={{ flexDirection: "column" }}>
+    <Center className="detailsCenterA">
       <h3>Product Details</h3>
-      <Center style={{ marginBottom: "1.5rem", marginTop: "1.5rem" }}>
+      <Center className="detailsCenterB">
         {item && (
           <Card shadow="sm" padding="lg" radius="md" withBorder>
             <Card.Section>
               <Image
+                className="detailsImg"
                 src={item.picture}
-                style={{ height: "500px", width: "400px" }}
                 alt="Item picture"
               />
             </Card.Section>
@@ -45,8 +46,8 @@ function DetailsPage({ VITE_API_URL }) {
             </Text>
 
             <Button
+              className="detailsButton"
               color="blue"
-              style={{ width: "400px" }}
               mt="md"
               radius="md"
               onClick={() => navigate("/")}

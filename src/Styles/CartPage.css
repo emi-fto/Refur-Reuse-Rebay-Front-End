@@ -1,0 +1,8 @@
+.cartCenter {
+  flex-direction: "column";
+  margin-bottom: "3rem";
+  margin-top: "1rem";
+}
+.cartButton {
+  width: "500px";
+}

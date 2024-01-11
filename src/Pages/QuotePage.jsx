@@ -2,6 +2,7 @@ import { notifications } from "@mantine/notifications";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { TextInput, Button, Group, Box } from "@mantine/core";
+import "../Styles/QuotePage.css";
 
 function QuotePage() {
   const navigate = useNavigate();
@@ -29,11 +30,7 @@ function QuotePage() {
 
   return (
     <>
-      <Box
-        maw={340}
-        mx="auto"
-        style={{ marginBottom: "1.5rem", marginTop: "1.5rem" }}
-      >
+      <Box className="quoteBox" maw={340} mx="auto">
         <h3>How much would it cost to repair your item? Ask a quote!</h3>
         <form onSubmit={handleSubmit}>
           <TextInput

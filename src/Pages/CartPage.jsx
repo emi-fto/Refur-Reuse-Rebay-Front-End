@@ -12,6 +12,7 @@ import {
 } from "@mantine/core";
 import { useViewportSize } from "@mantine/hooks";
 import { useNavigate } from "react-router-dom";
+import "../Styles/CartPage.css";
 
 function CartPage({ cartItems, setCartItems, VITE_API_URL }) {
   const navigate = useNavigate();
@@ -59,13 +60,7 @@ function CartPage({ cartItems, setCartItems, VITE_API_URL }) {
   }, 0);
 
   return (
-    <Center
-      style={{
-        flexDirection: "column",
-        marginBottom: "3rem",
-        marginTop: "1rem",
-      }}
-    >
+    <Center className="cartCenter">
       <h1>Your cart</h1>
       <SimpleGrid cols={width > 1200 ? 3 : width > 800 ? 2 : 1}>
         {cartItems.map((item) => (
@@ -105,11 +100,11 @@ function CartPage({ cartItems, setCartItems, VITE_API_URL }) {
       <h2>Total €{sumCart}</h2>
 
       <Button
+        className="cartButton"
         color="blue"
         fullWidth
         mt="md"
         radius="md"
-        style={{ width: "500px" }}
         onClick={() => deleteAll()}
       >
         Buy!

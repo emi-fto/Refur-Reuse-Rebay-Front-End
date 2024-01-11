@@ -1,6 +1,7 @@
 import { NavLink, SimpleGrid, Center } from "@mantine/core";
 import { IconBrandGithubFilled } from "@tabler/icons-react";
 import { useViewportSize } from "@mantine/hooks";
+import "../Styles/Footer.css";
 
 function Footer() {
   const { width } = useViewportSize();

@@ -14,7 +14,7 @@ function AboutPage() {
         Check our profiles below!
       </p>
       <SimpleGrid
-        style={{ marginBottom: "2rem" }}
+        className="aboutGrid"
         cols={width > 1200 ? 3 : width > 800 ? 2 : 1}
       >
         <div>

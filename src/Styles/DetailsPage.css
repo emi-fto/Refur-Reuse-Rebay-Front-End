@@ -1,0 +1,14 @@
+.detailsCenterA {
+  flex-direction: "column";
+}
+.detailsCenterB {
+  margin-bottom: "1.5rem";
+  margin-top: "1.5rem";
+}
+.detailsImg {
+  height: "500px";
+  width: "400px";
+}
+.detailsButton {
+  width: "400px";
+}

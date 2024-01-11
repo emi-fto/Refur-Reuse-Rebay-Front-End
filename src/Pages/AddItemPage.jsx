@@ -4,6 +4,7 @@ import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 import { notifications } from "@mantine/notifications";
 import { TextInput, Button, Group, Box } from "@mantine/core";
+import "../Styles/AddItemPage.css";
 
 function AddItemPage({ VITE_API_URL }) {
   const navigate = useNavigate();
@@ -53,11 +54,7 @@ function AddItemPage({ VITE_API_URL }) {
 
   return (
     <>
-      <Box
-        maw={340}
-        mx="auto"
-        style={{ marginBottom: "1.5rem", marginTop: "1.5rem" }}
-      >
+      <Box className="addItemBox" maw={340} mx="auto">
         <h3>Add your item here</h3>
         <form onSubmit={handleSubmit}>
           <TextInput
