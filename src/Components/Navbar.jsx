@@ -12,7 +12,7 @@ function Navbar() {
   return (
     <>
       <SimpleGrid
-        style={{ marginLeft: "13vw", alignItems: "center" }}
+        className="NavbarGrid"
         cols={width > 1200 ? 5 : width > 800 ? 2 : 1}
       >
         <Link to="/">
@@ -38,12 +38,7 @@ function Navbar() {
         </Link>
 
         <Link to="/Cart">
-          <ThemeIcon
-            radius="md"
-            size="lg"
-            color="orange"
-            style={{ marginTop: "1.05rem" }}
-          >
+          <ThemeIcon className="themeIcon" radius="md" size="lg" color="orange">
             <IconShoppingCart size="2rem" stroke={1.5} />
           </ThemeIcon>
         </Link>
