@@ -16,11 +16,11 @@ import { useNavigate } from "react-router-dom";
 function CartPage({ cartItems, setCartItems, VITE_API_URL }) {
   const navigate = useNavigate();
   const { width } = useViewportSize();
+
   const removeItem = (itemId) => {
     const filteredItems = cartItems.filter((item) => {
-      return item.id || item._id !== itemId;
+      return item.id ? item.id !== itemId : item._id !== itemId;
     });
-
     setCartItems(filteredItems);
   };
 
