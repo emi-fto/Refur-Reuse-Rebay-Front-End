@@ -40,8 +40,18 @@ function HomePage({ cartItems, setCartItems, VITE_API_URL }) {
   }, [searchTerm]);
 
   const addToCart = (item) => {
-    const itemExists = cartItems.find((cartItem) => cartItem.id === item.id);
-    if (!itemExists) {
+    const itemExistsJsonServer = cartItems.find(
+      (cartItem) => cartItem.id === item.id
+    );
+    const itemExistsNodeJs = cartItems.find(
+      (cartItem) => cartItem._id === item._id
+    );
+    if (!itemExistsJsonServer) {
+      setCartItems([...cartItems, item]);
+      notifications.show({
+        title: "Item added to the cart!",
+      });
+    } else if (!itemExistsNodeJs) {
       setCartItems([...cartItems, item]);
       notifications.show({
         title: "Item added to the cart!",
@@ -61,9 +71,9 @@ function HomePage({ cartItems, setCartItems, VITE_API_URL }) {
       <SimpleGrid cols={width > 1200 ? 3 : width > 800 ? 2 : 1} m="1.5rem">
         {items.map((item) => {
           return (
-            <div className="Item card" key={item.id}>
+            <div className="Item card" key={item.id || item._id}>
               <Card shadow="sm" padding="lg" radius="md" withBorder>
-                <Link to={"/item/" + item.id}>
+                <Link to={`/item/${item.id || item._id}`}>
                   <Card.Section>
                     <Image
                       src={item.picture}
@@ -94,7 +104,7 @@ function HomePage({ cartItems, setCartItems, VITE_API_URL }) {
                   Add to Cart
                 </Button>
 
-                <Link to={"/edit/" + item.id}>
+                <Link to={`/edit/${item.id || item._id}`}>
                   <Button color="blue" fullWidth mt="md" radius="md">
                     Edit item
                   </Button>

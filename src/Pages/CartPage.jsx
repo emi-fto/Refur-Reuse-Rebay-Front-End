@@ -18,7 +18,7 @@ function CartPage({ cartItems, setCartItems, VITE_API_URL }) {
   const { width } = useViewportSize();
   const removeItem = (itemId) => {
     const filteredItems = cartItems.filter((item) => {
-      return item.id !== itemId;
+      return item.id || item._id !== itemId;
     });
 
     setCartItems(filteredItems);
@@ -32,7 +32,7 @@ function CartPage({ cartItems, setCartItems, VITE_API_URL }) {
     if (cartItems.length !== 0) {
       try {
         await Promise.all(
-          cartItems.map((item) => deleteItemFromDatabase(item.id))
+          cartItems.map((item) => deleteItemFromDatabase(item.id || item._id))
         );
         setCartItems([]);
         notifications.show({
@@ -63,7 +63,7 @@ function CartPage({ cartItems, setCartItems, VITE_API_URL }) {
       <h1>Your cart</h1>
       <SimpleGrid cols={width > 1200 ? 3 : width > 800 ? 2 : 1}>
         {cartItems.map((item) => (
-          <div key={item.id}>
+          <div key={item.id || item._id}>
             <Card shadow="sm" padding="lg" radius="md" withBorder>
               <Card.Section>
                 <Image
@@ -88,7 +88,7 @@ function CartPage({ cartItems, setCartItems, VITE_API_URL }) {
                 fullWidth
                 mt="md"
                 radius="md"
-                onClick={() => removeItem(item.id)}
+                onClick={() => removeItem(item.id || item._id)}
               >
                 Remove item
               </Button>

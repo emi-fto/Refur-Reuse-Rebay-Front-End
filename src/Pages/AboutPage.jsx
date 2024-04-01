@@ -18,7 +18,7 @@ function AboutPage() {
           <Card shadow="sm" padding="lg" radius="md" withBorder>
             <Card.Section>
               <Image
-                src="https://media.licdn.com/dms/image/D4D03AQEceePNoAFgjg/profile-displayphoto-shrink_800_800/0/1705564821700?e=1710979200&v=beta&t=P7xxIq6CMrVGS7vjLW7QyzAgeApyqsNFAfEj2-QoC_w"
+                src="https://media.licdn.com/dms/image/D4D03AQEceePNoAFgjg/profile-displayphoto-shrink_800_800/0/1705564821700?e=1717632000&v=beta&t=Ee8Citd-TBsXE2N23-0KXrfx1IEgdfyHOEgWYUq8m-Q"
                 height="400vw"
                 width="33vw"
                 alt="Item picture"
@@ -47,7 +47,7 @@ function AboutPage() {
           <Card shadow="sm" padding="lg" radius="md" withBorder>
             <Card.Section>
               <Image
-                src="https://media.licdn.com/dms/image/D4E03AQEhC8j0pQnEiw/profile-displayphoto-shrink_800_800/0/1704892915029?e=1710374400&v=beta&t=5uSTiidT8Bx4GPO6ySZSki2nFxk1SM7qcZrVpe7i0pU"
+                src="https://media.licdn.com/dms/image/D4E35AQGeDIm-CkZnjg/profile-framedphoto-shrink_800_800/0/1706967120887?e=1712584800&v=beta&t=0VeAtgAyGnqcHzSNQc8--8bW4Qrxk6GlMecCdGpOvzg"
                 height="400vw"
                 width="33vw"
                 alt="Item picture"
@@ -76,7 +76,7 @@ function AboutPage() {
           <Card shadow="sm" padding="lg" radius="md" withBorder>
             <Card.Section>
               <Image
-                src="https://media.licdn.com/dms/image/D4E03AQFm94XNsp0H-A/profile-displayphoto-shrink_200_200/0/1678376400608?e=1710374400&v=beta&t=O0amIXts5OlTNADF6ZrzBUZDvATHDSUPQqg33HlhCAM"
+                src="https://media.licdn.com/dms/image/D5603AQFLWADkC-nunQ/profile-displayphoto-shrink_800_800/0/1709063106973?e=1717632000&v=beta&t=mvshmaS9j_luMbWO9TIAw1z3cLGslQU03-CXuOzltVE"
                 height="400vw"
                 width="33vw"
                 alt="Item picture"
