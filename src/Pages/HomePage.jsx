@@ -51,16 +51,16 @@ function HomePage({ cartItems, setCartItems, VITE_API_URL }) {
     if (!itemExistsJsonServer) {
       setCartItems([...cartItems, item]);
       notifications.show({
-        title: "Item added to the cart!",
+        title: t("Item added to the cart!"),
       });
     } else if (!itemExistsNodeJs) {
       setCartItems([...cartItems, item]);
       notifications.show({
-        title: "Item added to the cart!",
+        title: t("Item added to the cart!"),
       });
     } else {
       notifications.show({
-        title: "You can't add an unique item twice!",
+        title: t("You can't add an unique item twice!"),
       });
     }
   };

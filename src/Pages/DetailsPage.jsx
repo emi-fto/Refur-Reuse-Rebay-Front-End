@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { Card, Image, Text, Button, Group, Center, Stack } from "@mantine/core";
+import { useTranslation } from "react-i18next";
 
 function DetailsPage({ VITE_API_URL }) {
+  const { t } = useTranslation();
   const [item, setItem] = useState({});
   const { itemId } = useParams();
 
@@ -22,7 +24,7 @@ function DetailsPage({ VITE_API_URL }) {
 
   return (
     <Stack align="center">
-      <h3>Product Details</h3>
+      <h3>{t("Product Details")}</h3>
       <Center my="1.5rem">
         {item && (
           <Card shadow="sm" padding="lg" radius="md" withBorder>
@@ -52,7 +54,7 @@ function DetailsPage({ VITE_API_URL }) {
               radius="md"
               onClick={() => navigate("/")}
             >
-              Back
+              {t("Back")}
             </Button>
           </Card>
         )}

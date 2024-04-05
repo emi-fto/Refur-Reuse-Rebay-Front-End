@@ -4,10 +4,11 @@ import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 import { notifications } from "@mantine/notifications";
 import { TextInput, Button, Group, Box } from "@mantine/core";
+import { useTranslation } from "react-i18next";
 
 function AddItemPage({ VITE_API_URL }) {
   const navigate = useNavigate();
-
+  const { t } = useTranslation();
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [picture, setPicture] = useState("");
@@ -41,7 +42,7 @@ function AddItemPage({ VITE_API_URL }) {
         }
       );
       notifications.show({
-        title: `Item added correctly!`,
+        title: t(`Item added correctly!`),
       });
       setTimeout(() => {
         navigate("/");
@@ -54,45 +55,45 @@ function AddItemPage({ VITE_API_URL }) {
   return (
     <>
       <Box maw={340} mx="auto" my="1.5rem">
-        <h3>Add your item here</h3>
+        <h3>{t("Add your item here")}</h3>
         <form onSubmit={handleSubmit}>
           <TextInput
-            label="Name"
-            placeholder="Item Name"
+            label={t("Name")}
+            placeholder={t("Item Name")}
             value={name}
             onChange={handleName}
           />
           <TextInput
             mt="md"
-            label="Description"
-            placeholder="Description"
+            label={t("Description")}
+            placeholder={t("Description")}
             value={description}
             onChange={handleDescription}
           />
           <TextInput
             mt="md"
-            label="Image"
-            placeholder="Picture URL"
+            label={t("Image")}
+            placeholder={t("Picture URL")}
             value={picture}
             onChange={handlePicture}
           />
           <TextInput
             mt="md"
-            label="Category"
-            placeholder="Category"
+            label={t("Category")}
+            placeholder={t("Category")}
             value={category}
             onChange={handleCategory}
           />
           <TextInput
-            label="Price"
-            placeholder="Price in Euro"
+            label={t("Price")}
+            placeholder={t("Price in Euro")}
             value={price}
             onChange={handlePrice}
           />
 
           <Group justify="center" mt="xl">
             <Button type="submit" mt="sm">
-              Add Item
+              {t("Add Item")}
             </Button>
           </Group>
         </form>

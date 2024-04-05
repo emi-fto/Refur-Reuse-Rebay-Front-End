@@ -12,8 +12,10 @@ import {
 } from "@mantine/core";
 import { useViewportSize } from "@mantine/hooks";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 function CartPage({ cartItems, setCartItems, VITE_API_URL }) {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const { width } = useViewportSize();
 
@@ -36,7 +38,7 @@ function CartPage({ cartItems, setCartItems, VITE_API_URL }) {
         );
         setCartItems([]);
         notifications.show({
-          title: "Purchase completed! You own us money!",
+          title: t("Purchase completed! You own us money!"),
         });
         setTimeout(() => {
           navigate("/");
@@ -44,12 +46,12 @@ function CartPage({ cartItems, setCartItems, VITE_API_URL }) {
       } catch (error) {
         console.error("Error deleting items:", error);
         notifications.show({
-          title: "Error completing the purchase!",
+          title: t("Error completing the purchase!"),
         });
       }
     } else {
       notifications.show({
-        title: "Cart is empty!",
+        title: t("Cart is empty!"),
       });
     }
   };
@@ -60,7 +62,7 @@ function CartPage({ cartItems, setCartItems, VITE_API_URL }) {
 
   return (
     <Stack align="center" mb="3rem" mt="1rem">
-      <h1>Your cart</h1>
+      <h1>{t("Your cart")}</h1>
       <SimpleGrid cols={width > 1200 ? 3 : width > 800 ? 2 : 1}>
         {cartItems.map((item) => (
           <div key={item.id || item._id}>
@@ -90,13 +92,16 @@ function CartPage({ cartItems, setCartItems, VITE_API_URL }) {
                 radius="md"
                 onClick={() => removeItem(item.id || item._id)}
               >
-                Remove item
+                {t("Remove item")}
               </Button>
             </Card>
           </div>
         ))}
       </SimpleGrid>
-      <h2>Total €{sumCart}</h2>
+      <h2>
+        {t("Total €")}
+        {sumCart}
+      </h2>
 
       <Button
         color="blue"
@@ -106,7 +111,7 @@ function CartPage({ cartItems, setCartItems, VITE_API_URL }) {
         w="60vw"
         onClick={() => deleteAll()}
       >
-        Buy!
+        {t("Buy!")}
       </Button>
     </Stack>
   );

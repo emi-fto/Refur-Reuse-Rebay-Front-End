@@ -3,8 +3,10 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { TextInput, Button, Group, Box } from "@mantine/core";
 import { notifications } from "@mantine/notifications";
+import { useTranslation } from "react-i18next";
 
 function EditItemPage({ VITE_API_URL }) {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const { itemId } = useParams();
 
@@ -36,11 +38,11 @@ function EditItemPage({ VITE_API_URL }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (window.confirm("Do you have the permission to update this item?")) {
+    if (window.confirm(t("Do you have the permission to update this item?"))) {
       const requestBody = { name, description, picture, category, price };
       axios.put(`${VITE_API_URL}/${itemId}`, requestBody).then(() => {
         notifications.show({
-          title: `Item updated correctly!`,
+          title: t(`Item updated correctly!`),
         });
         setTimeout(() => {
           navigate("/");
@@ -48,7 +50,7 @@ function EditItemPage({ VITE_API_URL }) {
       });
     } else {
       notifications.show({
-        title: `Sorry it seems you can't update this item!`,
+        title: t(`Sorry it seems you can't update this item!`),
       });
       setTimeout(() => {
         navigate("/");
@@ -59,45 +61,45 @@ function EditItemPage({ VITE_API_URL }) {
   return (
     <>
       <Box maw={340} mx="auto" my="1.5rem">
-        <h3>Edit Item</h3>
+        <h3>{t("Edit Item")}</h3>
         <form onSubmit={handleSubmit}>
           <TextInput
-            label="Name"
-            placeholder="Item Name"
+            label={t("Name")}
+            placeholder={t("Item Name")}
             value={name}
             onChange={handleName}
           />
           <TextInput
             mt="md"
-            label="Description"
-            placeholder="Description"
+            label={t("Description")}
+            placeholder={t("Description")}
             value={description}
             onChange={handleDescription}
           />
           <TextInput
             mt="md"
-            label="Image"
-            placeholder="Picture URL"
+            label={t("Image")}
+            placeholder={t("Picture URL")}
             value={picture}
             onChange={handlePicture}
           />
           <TextInput
             mt="md"
-            label="Category"
-            placeholder="Category"
+            label={t("Category")}
+            placeholder={t("Category")}
             value={category}
             onChange={handleCategory}
           />
           <TextInput
-            label="Price"
-            placeholder="Price in Euro"
+            label={t("Price")}
+            placeholder={t("Price in Euro")}
             value={price}
             onChange={handlePrice}
           />
 
           <Group justify="center" mt="xl">
             <Button type="submit" mt="sm">
-              Update Item
+              {t("Update Item")}
             </Button>
           </Group>
         </form>
