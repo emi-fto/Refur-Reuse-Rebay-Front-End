@@ -1,0 +1,18 @@
+.switchCtn {
+  display: flex;
+  align-items: center;
+}
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+.active {
+  color: orange;
+  /* Add any other styles you want for the active button */
+}
+.vl {
+  border-left: 2px solid orange;
+  height: 25px;
+}

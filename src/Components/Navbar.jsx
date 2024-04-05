@@ -1,4 +1,4 @@
-import { Menu, Text, ThemeIcon, Burger } from "@mantine/core";
+import { Menu, Text, ThemeIcon, Burger, Box } from "@mantine/core";
 import "../Styles/Navbar.css";
 import { Link } from "react-router-dom";
 import { IconShoppingCart } from "@tabler/icons-react";
@@ -7,29 +7,7 @@ import { SimpleGrid } from "@mantine/core";
 import { useViewportSize } from "@mantine/hooks";
 import { useState, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
-import i18n from "i18next";
-import { initReactI18next } from "react-i18next";
-import translationEN from "../locales/en/translation.json";
-import translationDE from "../locales/de/translation.json";
 import LanguageSwitcher from "./LanguageSwitcher";
-
-const resources = {
-  en: {
-    translation: translationEN,
-  },
-  de: {
-    translation: translationDE,
-  },
-};
-
-i18n.use(initReactI18next).init({
-  resources,
-  lng: "en",
-  fallbackLng: "en",
-  interpolation: {
-    escapeValue: false,
-  },
-});
 
 function Navbar() {
   const { t } = useTranslation();
@@ -72,40 +50,41 @@ function Navbar() {
 
   return width > 1200 ? (
     <>
-      <SimpleGrid ml="5vw" cols={5}>
+      <SimpleGrid ml="5vw" cols={6}>
         <Link to="/">
           <img className="logo" src={rEbay} alt="ReBay" />
         </Link>
-
+        <Box mt="2.5rem">
+          <LanguageSwitcher />
+        </Box>
         <Link to="/About">
-          <Text mt="2.2rem" fw={500} ta="center">
+          <Text mt="2.8rem" mr="7rem" fw={500} ta="center">
             {t("About Us")}
           </Text>
         </Link>
 
         <Link to="/AddItem">
-          <Text mt="2.2rem" fw={500} ta="center">
+          <Text mt="2.8rem" mr="5rem" fw={500} ta="center">
             {t("Add Item")}
           </Text>
         </Link>
 
         <Link to="/Quote">
-          <Text mt="2.2rem" fw={500} ta="center">
+          <Text mt="2.8rem" fw={500} ta="center">
             {t("Ask Quote")}
           </Text>
         </Link>
 
         <Link to="/Cart">
-          <ThemeIcon radius="md" size="lg" color="orange" mt="2.1rem" ml="7rem">
+          <ThemeIcon radius="md" size="lg" color="orange" mt="2.5rem" ml="5rem">
             <IconShoppingCart size="2rem" stroke={1.5} />
           </ThemeIcon>
         </Link>
-        <LanguageSwitcher />
       </SimpleGrid>
     </>
   ) : (
     <>
-      <SimpleGrid ml="5vw" cols={2}>
+      <SimpleGrid ml="5vw" cols={3}>
         <div className="logoBurger" ref={menuRef}>
           <Menu shadow="md" width={150} opened={menuOpened}>
             <Menu.Target>
@@ -134,15 +113,17 @@ function Navbar() {
                 </Text>
               </Link>
               <Menu.Divider />
-              <LanguageSwitcher />
             </Menu.Dropdown>
           </Menu>
           <Link to="/">
             <img className="logoSm" src={rEbay} alt="ReBay" />
           </Link>
         </div>
+        <Box ml="10vw" mt="1.2rem">
+          <LanguageSwitcher />
+        </Box>
         <Link to="/Cart">
-          <ThemeIcon radius="md" size="lg" color="orange" ml="30vw" mt="1.3rem">
+          <ThemeIcon radius="md" size="lg" color="orange" ml="17vw" mt="1.3rem">
             <IconShoppingCart size="2rem" stroke={1.5} />
           </ThemeIcon>
         </Link>

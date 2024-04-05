@@ -1,18 +1,31 @@
 import { useTranslation } from "react-i18next";
+import "../Styles/LanguageSwitcher.css";
+import i18n from "../Components/i18n";
 
 const LanguageSwitcher = () => {
-  const { i18n } = useTranslation();
+  const { t } = useTranslation();
 
-  const handleLanguageChange = (event) => {
-    const newLang = event.target.value;
+  const handleLanguageChange = (newLang) => {
     i18n.changeLanguage(newLang);
   };
 
   return (
-    <select value={i18n.language} onChange={handleLanguageChange}>
-      <option value="en">English</option>
-      <option value="de">Deutsch</option>
-    </select>
+    <div class="switchCtn">
+      <button
+        onClick={() => handleLanguageChange("en")}
+        className={i18n.language === "en" ? "active" : ""}
+      >
+        EN
+      </button>
+      <div class="vl"></div>
+      <button
+        onClick={() => handleLanguageChange("de")}
+        className={i18n.language === "de" ? "active" : ""}
+      >
+        DE
+      </button>
+    </div>
   );
 };
+
 export default LanguageSwitcher;

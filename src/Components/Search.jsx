@@ -1,7 +1,9 @@
 import { TextInput } from "@mantine/core";
 import { IconSearch } from "@tabler/icons-react";
+import { useTranslation } from "react-i18next";
 
 function Search({ searchTerm, setSearchTerm }) {
+  const { t } = useTranslation();
   return (
     <>
       <TextInput
@@ -10,7 +12,7 @@ function Search({ searchTerm, setSearchTerm }) {
         variant="filled"
         size="md"
         radius="xl"
-        placeholder="Search by name or category"
+        placeholder={t("Search by name or category")}
         value={searchTerm}
         onChange={(event) => setSearchTerm(event.target.value)}
       />
