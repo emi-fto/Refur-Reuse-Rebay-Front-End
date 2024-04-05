@@ -2,16 +2,19 @@ import { Card, Group, Image, Text, NavLink, SimpleGrid } from "@mantine/core";
 import "../Styles/About.css";
 import { IconBrandGithubFilled, IconBrandLinkedin } from "@tabler/icons-react";
 import { useViewportSize } from "@mantine/hooks";
+import { useTranslation } from "react-i18next";
 
 function AboutPage() {
+  const { t } = useTranslation();
   const { width } = useViewportSize();
 
   return (
     <div className="about">
-      <h1 className="textabout">About us</h1>
+      <h1 className="textabout">{t("About Us")}</h1>
       <p className="textabout">
-        We are three Ironhackers passionate about Web Development. <br />
-        Check our profiles below!
+        {t(
+          "We are three Ironhackers passionate about Web Development. Check our profiles below!"
+        )}
       </p>
       <SimpleGrid mb="2rem" cols={width > 1200 ? 3 : width > 800 ? 2 : 1}>
         <div>

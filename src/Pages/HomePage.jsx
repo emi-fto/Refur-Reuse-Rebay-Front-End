@@ -6,8 +6,10 @@ import { Card, Image, Text, Button, Group } from "@mantine/core";
 import { SimpleGrid, Center } from "@mantine/core";
 import { notifications } from "@mantine/notifications";
 import { useViewportSize } from "@mantine/hooks";
+import { useTranslation } from "react-i18next";
 
 function HomePage({ cartItems, setCartItems, VITE_API_URL }) {
+  const { t } = useTranslation();
   const [items, setItems] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [timeoutId, setTimeoutId] = useState();
@@ -101,12 +103,12 @@ function HomePage({ cartItems, setCartItems, VITE_API_URL }) {
                   radius="md"
                   onClick={() => addToCart(item)}
                 >
-                  Add to Cart
+                  {t("Add to Cart")}
                 </Button>
 
                 <Link to={`/edit/${item.id || item._id}`}>
                   <Button color="blue" fullWidth mt="md" radius="md">
-                    Edit item
+                    {t("Edit item")}
                   </Button>
                 </Link>
               </Card>
