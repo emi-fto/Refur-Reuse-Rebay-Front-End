@@ -6,8 +6,33 @@ import rEbay from "../assets/images/Rebay Logo.png";
 import { SimpleGrid } from "@mantine/core";
 import { useViewportSize } from "@mantine/hooks";
 import { useState, useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
+import i18n from "i18next";
+import { initReactI18next } from "react-i18next";
+import translationEN from "../locales/en/translation.json";
+import translationDE from "../locales/de/translation.json";
+import LanguageSwitcher from "./LanguageSwitcher";
+
+const resources = {
+  en: {
+    translation: translationEN,
+  },
+  de: {
+    translation: translationDE,
+  },
+};
+
+i18n.use(initReactI18next).init({
+  resources,
+  lng: "en",
+  fallbackLng: "en",
+  interpolation: {
+    escapeValue: false,
+  },
+});
 
 function Navbar() {
+  const { t } = useTranslation();
   const { width } = useViewportSize();
   const [opened, setOpened] = useState(false);
   const [menuOpened, setMenuOpened] = useState(false);
@@ -54,19 +79,19 @@ function Navbar() {
 
         <Link to="/About">
           <Text mt="2.2rem" fw={500} ta="center">
-            About Us
+            {t("About Us")}
           </Text>
         </Link>
 
         <Link to="/AddItem">
           <Text mt="2.2rem" fw={500} ta="center">
-            Add item
+            {t("Add Item")}
           </Text>
         </Link>
 
         <Link to="/Quote">
           <Text mt="2.2rem" fw={500} ta="center">
-            Ask for quote
+            {t("Ask Quote")}
           </Text>
         </Link>
 
@@ -75,6 +100,7 @@ function Navbar() {
             <IconShoppingCart size="2rem" stroke={1.5} />
           </ThemeIcon>
         </Link>
+        <LanguageSwitcher />
       </SimpleGrid>
     </>
   ) : (
@@ -92,21 +118,23 @@ function Navbar() {
             <Menu.Dropdown>
               <Link to="/About">
                 <Text mt="1rem" fw={500} ta="center">
-                  About Us
+                  {t("About Us")}
                 </Text>
               </Link>
               <Menu.Divider />
               <Link to="/AddItem">
                 <Text mt="1rem" fw={500} ta="center">
-                  Add item
+                  {t("Add Item")}
                 </Text>
               </Link>
               <Menu.Divider />
               <Link to="/Quote">
                 <Text my="1rem" fw={500} ta="center">
-                  Ask for quote
+                  {t("Ask Quote")}
                 </Text>
               </Link>
+              <Menu.Divider />
+              <LanguageSwitcher />
             </Menu.Dropdown>
           </Menu>
           <Link to="/">

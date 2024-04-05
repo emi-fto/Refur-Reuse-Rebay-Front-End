@@ -17,8 +17,10 @@
     "@mantine/notifications": "^7.4.0",
     "@tabler/icons-react": "^2.45.0",
     "axios": "^1.6.2",
+    "i18next": "^23.10.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-i18next": "^14.1.0",
     "react-router-dom": "^6.21.1",
     "uuidv4": "^6.2.13"
   },
