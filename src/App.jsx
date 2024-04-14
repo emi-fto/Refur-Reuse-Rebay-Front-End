@@ -8,15 +8,35 @@ import CartPage from "./Pages/CartPage";
 import AddItemPage from "./Pages/AddItemPage";
 import DetailsPage from "./Pages/DetailsPage";
 import QuotePage from "./Pages/QuotePage";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { useState } from "react";
 import EditItemPage from "./Pages/EditItemPage";
 import { AppShell, Center } from "@mantine/core";
 import errorPage from "./assets/images/404.png";
+import { useEffect } from "react";
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
   let VITE_API_URL = `${import.meta.env.VITE_API_URL}/items`;
+
+  const location = useLocation();
+  useEffect(() => {
+    let title = "";
+    switch (location.pathname) {
+      case "/":
+        title = "";
+        break;
+      case "/About":
+        title = "About Us |";
+        break;
+      case "/Cart":
+        title = "Cart |";
+        break;
+      default:
+        title = "";
+    }
+    document.title = `${title} Refurb - Reuse - Rebay!`;
+  }, [location.pathname]);
 
   return (
     <AppShell>
